@@ -6,6 +6,7 @@ var menuIcon = document.getElementById("menuIcon");
 var logo = document.getElementById("logo");
 var allAs = document.getElementsByTagName("a");
 var iconNum = 1;
+var scrollNum = 0;
 
 window.onload = position;
 
@@ -46,6 +47,10 @@ function resize() {
     } else {
         mainNav.style.position = "relative";
     }
+    if (scrollNum === 0) {
+        mainNav.style.position = "absolute";
+        mainNav.style.marginTop = "0";
+    }
 }
 
 window.onscroll = scroll;
@@ -53,15 +58,16 @@ window.onscroll = scroll;
 function checkMarginTop() {
     if (window.pageYOffset <= 50 && window.innerWidth < 599) {
         mainNav.style.marginTop = "-5px";
+        mainNav.style.position = "relative";
     } else {
         mainNav.style.marginTop = "0";
     }
 }
 
 function scroll() {
+    scrollNum++;
     checkMarginTop();
     checkPadding();
-    resize();
     if (window.pageYOffset >= 50) {
         mainHeader.classList.add("smallHeader");
         logo.classList.remove("bigLogo");
@@ -92,8 +98,3 @@ function setPadding(className) {
         allAs[i].setAttribute("class", className);
     }
 }
-
-
-
-
-
