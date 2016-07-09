@@ -1,5 +1,5 @@
 # responsivenavbar 
 
-A JS responsive navbar project 
+A responsive JS sliding navbar project 
 
 https://pumala.github.io/responsivenavbar/
